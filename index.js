@@ -6,13 +6,22 @@ btnEl.addEventListener("click", function () {
   renderConversion(conversions);
 });
 
+function formatNumber(number) {
+  if (number.toFixed(3).toString().length > 12) {
+    formattedNum = number.toExponential(3);
+  } else {
+    formattedNum = number.toFixed(3);
+  }
+  return formattedNum;
+}
+
 function convert(number) {
-  const meterToFeet = Number((number * 3.28084).toFixed(3));
-  const litreToGallon = Number((number * 0.264172).toFixed(3));
-  const kiloToPound = Number((number * 2.20462).toFixed(3));
-  const feetToMeter = Number((number / 3.28084).toFixed(3));
-  const gallonToLitre = Number((number / 0.264172).toFixed(3));
-  const poundToKilo = Number((number / 2.20462).toFixed(3));
+  const meterToFeet = formatNumber(number * 3.28084);
+  const litreToGallon = formatNumber(number * 0.264172);
+  const kiloToPound = formatNumber(number * 2.20462);
+  const feetToMeter = formatNumber(number / 3.28084);
+  const gallonToLitre = formatNumber(number / 0.264172);
+  const poundToKilo = formatNumber(number / 2.20462);
 
   const lengthConversion = `${number} meters = ${meterToFeet} feet | ${number} feet = ${feetToMeter} meters`;
   const volumeConversion = `${number} litres = ${litreToGallon} gallons | ${number} gallons = ${gallonToLitre} litres`;
