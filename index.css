@@ -97,7 +97,7 @@ button:focus {
 #conversions div {
   background-color: #273549;
   padding: 30px 75px 20px;
-  height: 100px;
+  min-height: 100px;
 }
 
 h4 {
